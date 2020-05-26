@@ -1,0 +1,104 @@
+import socket
+import time
+from zlib import compress
+import io
+from mss import mss
+import ctypes
+from PIL import ImageGrab, Image
+import lz4.frame
+import sys
+user32 = ctypes.windll.user32
+wid_hei = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
+
+WIDTH = 0
+HEIGHT = 0
+
+SERVER_HOST = "10.0.0.3"
+SERVER_PORT = 5555
+
+class Pixle_sender():
+
+    def __init__(self):
+        self.conn = self.Get_connection()
+        self.WIDTH = 0
+        self.HEIGHT = 0
+
+
+    def Get_connection(self):
+        so = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        # connect to the server
+        so.connect((SERVER_HOST, SERVER_PORT))
+        so.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
+        return so
+
+    def Get_Screen_Size(self):
+        self.conn.send((str(wid_hei[0]) + " " + str(wid_hei[1])).encode())
+        recv = self.conn.recv(1024).decode()
+        if (recv == "OK"):
+            return int(wid_hei[0]), int(wid_hei[1])
+        wid = recv.split(" ")[0]
+        hei = recv.split(" ")[1]
+        print("OK")
+        return int(wid), int(hei)
+
+
+
+
+
+
+
+    def Main(self):
+
+        self.WIDTH, self.HEIGHT = self.Get_Screen_Size()
+        print(str(self.WIDTH))
+        print(str(self.HEIGHT))
+        # The region to capture
+        time.sleep(0.5)
+        i = 0
+        while 'recording':
+            # Capture the screen
+            img = ImageGrab.grab(bbox=None)
+            print("took")
+            resized_img = img.resize((self.WIDTH, self.HEIGHT))
+            image_bytes = io.BytesIO()
+            resized_img.save(image_bytes, format='JPEG')
+            # Tweak the compression level here (0-9)
+            pixels = image_bytes.getvalue()
+            print(len(pixels))
+            # Send the pixels
+            #print(pixels)
+            if(len(pixels) % 1024 == 0):
+                i = 100000000000000000000000000000000
+            self.Sender(pixels)
+            #print(i)
+            i += 1
+
+
+    def Sender(self, pixels):
+        pix = io.BytesIO(pixels)
+        f = False
+        while True:
+            f1 = pix.read(1024)
+            if(len(f1) < 1024):
+                self.conn.send(f1 + "#".encode() * (1024 - len(f1)))
+                print(len(f1 + "#".encode() * (1024 - len(f1))))
+                f1_len = str(len(f1))
+                self.conn.send(str(len(f1)).encode() + (1024 - len(f1_len)) * "+".encode())
+                f = True
+                #print("Sent")
+                break
+
+            self.conn.send(f1)
+
+        if(f == False):
+            print("Sent *")
+            self.conn.send(("*" * 1024).encode())
+        #print("exited")
+
+
+
+
+
+
+ps = Pixle_sender()
+ps.Main()

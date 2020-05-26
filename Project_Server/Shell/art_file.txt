@@ -1,0 +1,20 @@
+  ________  ________   _____ __  __________    __
+ /_  __/ / / / ____/  / ___// / / / ____/ /   / /
+  / / / /_/ / __/     \__ \/ /_/ / __/ / /   / /
+ / / / __  / /___    ___/ / __  / /___/ /___/ /___
+/_/ /_/ /_/_____/   /____/_/ /_/_____/_____/_____/
+
+
+Welcome to the shell!
+Here are your options:
+
+1) to execute a shell command, type: shell <your commands>
+2) to execute a file, type execute <path_fo_file>
+3) to download a file from the remote computer, type: download <path to file>
+4) to upload a file to the remote computer, type: upload <path to file>
+5) to encrypt a file in the remote computer, type: encrypt <path to file>
+6) to decrypt a file in the remote computer, type: decrypt <path to file> [you need an decryption key in order to decrypt the file]
+7) to navigate in the remote computer, use the cd command [examples: cd <path to dir>, cd .. (to go to the prev dir)]
+8) to change the hard drive, type: change <hard drive name> [if you type only 'change', it will display the list of the remote computer hard drives]
+9) to exit from the shell, type: exit
+

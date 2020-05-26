@@ -5,6 +5,7 @@ A cool remote control program that I have created in python and WPF :)
 
 A multi - threading program, buillt in WPF[the GUI SIDE] that interacts with python, and gives the abillity to control all the clients that have connected to it thogether, at the same time.
 Things that the control user can do on each client(one option each time):
+
 A. An option to open a rev shell, which includes:
   1. remote code execution(Including execution of a binary/any file on the victims computer).		
   2. upload files form the control user compuer to the victims computer, or download files.

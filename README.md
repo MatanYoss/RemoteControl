@@ -1,6 +1,5 @@
 # RemoteControl
 A cool remote control program that I have created in python and WPF :)
-
 # What it inclues?
 
 A multi - threading program, buillt in WPF[the GUI SIDE] that interacts with python, and gives the abillity to control all the clients that have connected to it thogether, at the same time.

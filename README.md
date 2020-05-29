@@ -42,7 +42,7 @@ To compile the GUI sever, please go into Project_Server\Updated_Gui\GUI\ and run
  Opional: if you want to run the Python Server In the backround, follow this steps:
  
  	A. Go to PythonListener.cs
-	B. In the StartPython() function, change the path of the python file in the "pythonProcess.StartInfo.FileName" variable from 		"\Python37-32\python.exe" to "\Python37-32\pythonw.exe" .
+	B. In the StartPython() function, change the path of the python file in the "pythonProcess.StartInfo.FileName" variable from "\Python37-32\python.exe" to "\Python37-32\pythonw.exe" .
 	
 
 

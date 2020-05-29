@@ -26,11 +26,13 @@ Both The client and the server have to have Python2 and Python3 installed(I will
 In the client side, please run the following commands to install the required packages:
 
 pip2 install -r requirements2.txt
+
 pip3 install -r requirements3.txt
 
 In the Server side, please run the following commands to install the required packages:
 
 pip2 install -r requirements2.txt
+
 pip3 install -r requirements3.txt
 
 # How to Compile The GUI Server

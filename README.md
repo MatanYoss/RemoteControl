@@ -39,7 +39,7 @@ In the Server side, please run the following commands to install the required pa
 
 To compile the GUI sever, please go into Project_Server\Updated_Gui\GUI\ and run the GUI.sln file. After the project was loaded in VS , Press the start button to compile it(you can compile it in Debug mode and Release mode).
  
- Opional: if you want to run the Python Server In the backround, follow this steps:
+ Optional: if you want to run the Python Server In the backround, follow this steps:
  
  	A. Go to PythonListener.cs
 	B. In the StartPython() function, change the path of the python file in the "pythonProcess.StartInfo.FileName" variable from "\Python37-32\python.exe" to "\Python37-32\pythonw.exe" .

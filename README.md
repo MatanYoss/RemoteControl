@@ -24,10 +24,12 @@ Microsoft Visual Studio 2015 and above (The project was compiled and tested in V
 
 Both The client and the server have to have Python2 and Python3 installed(I will try to change that in the future to Python3 only :D) 
 In the client side, please run the following commands to install the required packages:
+
 pip2 install -r requirements2.txt
 pip3 install -r requirements3.txt
 
 In the Server side, please run the following commands to install the required packages:
+
 pip2 install -r requirements2.txt
 pip3 install -r requirements3.txt
 

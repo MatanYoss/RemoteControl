@@ -12,7 +12,7 @@ A. An option to open a rev shell, which includes:
   3. An option to encrypt/decrypt files using the AES algoritem(With a libary that I have buillt).		
   4. Navigate in the victim's computer using the cd command
 			
-B. An option to see the victim's live screen
+B. An option to see the victims live screen
 
 C. A keylogger - that gives the abillety to see what the victims type live, for an ammount of time that the user decides. 
 
